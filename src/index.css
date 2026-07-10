@@ -1,0 +1,377 @@
+/* ============================================
+   聚米 Jumy 官网（React 版）
+   风格: 简约 · 排版主导 · 液态玻璃
+   品牌色: #4ABDDC / 深色 #2985AE
+   文字: #1d1d1f 主 / #6e6e73 次（Apple 灰阶）
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #1d1d1f;
+  background: #f5f7fa;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- 环境底色：品牌色光，玻璃元素靠它产生折射感 --- */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(640px 420px at 82% 4%, rgba(74, 189, 220, 0.28), transparent 65%),
+    radial-gradient(760px 540px at 8% 34%, rgba(116, 158, 235, 0.20), transparent 65%),
+    radial-gradient(560px 400px at 55% 68%, rgba(255, 214, 165, 0.16), transparent 60%),
+    radial-gradient(620px 440px at 72% 98%, rgba(74, 189, 220, 0.18), transparent 60%);
+}
+
+/* --- 导航：液态玻璃条 --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(251, 251, 253, 0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.nav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brand-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: block;
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: 0.01em;
+}
+
+.brand-en {
+  font-weight: 400;
+  color: #6e6e73;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: #424245;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #1d1d1f;
+}
+
+/* --- Hero --- */
+.hero {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 168px 22px 120px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2985AE;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7.4vw, 68px);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: #1d1d1f;
+}
+
+.hero-sub {
+  font-size: clamp(17px, 2.3vw, 21px);
+  line-height: 1.65;
+  color: #55555a;
+  margin: 26px auto 0;
+  max-width: 620px;
+}
+
+.hero-actions {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-note {
+  font-size: 13px;
+  color: #86868b;
+}
+
+/* --- 按钮：玻璃胶囊 --- */
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(41, 133, 174, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 980px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 24px rgba(41, 133, 174, 0.28);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(41, 133, 174, 0.98);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 10px 28px rgba(41, 133, 174, 0.34);
+}
+
+/* --- 功能区：玻璃卡片 --- */
+.features {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px 120px;
+}
+
+.section-title {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: #1d1d1f;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  backdrop-filter: blur(28px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 22px;
+  padding: 30px 30px 28px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 16px 40px rgba(29, 29, 31, 0.06);
+}
+
+.card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #48484d;
+}
+
+/* 入场动画：纯 CSS，加载即播，动画失效时内容依然可见 */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero > * {
+  animation: fade-up 0.6s ease both;
+}
+
+.hero .hero-sub {
+  animation-delay: 0.08s;
+}
+
+.hero .hero-actions {
+  animation-delay: 0.16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > * {
+    animation: none;
+  }
+}
+
+/* --- 联系区 --- */
+.contact {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px 140px;
+  text-align: center;
+}
+
+.contact .section-title {
+  margin-bottom: 14px;
+}
+
+.contact p {
+  font-size: 16px;
+  color: #55555a;
+  margin-bottom: 22px;
+}
+
+.mail-link {
+  font-size: clamp(19px, 3vw, 24px);
+  font-weight: 500;
+  color: #2985AE;
+  border-bottom: 1px solid rgba(41, 133, 174, 0.35);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.mail-link:hover {
+  border-color: #2985AE;
+}
+
+/* --- 页脚 --- */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(251, 251, 253, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #86868b;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: #515154;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #1d1d1f;
+}
+
+/* --- 响应式 --- */
+@media (max-width: 700px) {
+  .hero {
+    padding: 128px 22px 88px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .contact {
+    padding-bottom: 88px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* 老浏览器不支持 backdrop-filter 时退化为实底，内容依然可读 */
+@supports not (backdrop-filter: blur(1px)) {
+  .nav,
+  .footer {
+    background: #fbfbfd;
+  }
+
+  .card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+::selection {
+  background: rgba(74, 189, 220, 0.25);
+  color: #1d1d1f;
+}
