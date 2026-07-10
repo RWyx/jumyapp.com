@@ -1,6 +1,6 @@
 /* ============================================
-   聚米 Jumy 官网 · v3
-   风格: 简约 · 专业 · 液态玻璃
+   聚米 Jumy 官网 · v4
+   风格: 编辑感排版 · 液态玻璃 · 个人项目口吻
    品牌色: #4ABDDC / 深色 #2985AE
    文字: #1d1d1f 主 / #6e6e73 次
    构建期预渲染，线上零 JS
@@ -65,9 +65,9 @@ img {
 }
 
 .nav-inner {
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 24px;
   height: 52px;
   display: flex;
   align-items: center;
@@ -115,43 +115,43 @@ img {
   color: #1d1d1f;
 }
 
-/* --- Hero --- */
+/* --- Hero：左对齐编辑排版 --- */
 .hero {
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 160px 22px 96px;
-  text-align: center;
+  padding: 176px 24px 110px;
 }
 
 .hero-eyebrow {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+  letter-spacing: 0.12em;
   color: #2985AE;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .hero h1 {
-  font-size: clamp(42px, 7.4vw, 68px);
+  font-size: clamp(48px, 9vw, 88px);
   font-weight: 650;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: #1d1d1f;
 }
 
 .hero-sub {
   font-size: clamp(17px, 2.3vw, 21px);
-  line-height: 1.65;
+  line-height: 1.7;
   color: #55555a;
-  margin: 26px auto 0;
-  max-width: 620px;
+  margin-top: 30px;
+  max-width: 560px;
 }
 
 .hero-actions {
-  margin-top: 38px;
+  margin-top: 40px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .hero-note {
@@ -159,12 +159,11 @@ img {
   color: #86868b;
 }
 
-/* 信任点：玻璃小胶囊 */
+/* 信任点：玻璃小胶囊，左对齐 */
 .trust-chips {
   list-style: none;
-  margin-top: 44px;
+  margin-top: 52px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -209,27 +208,40 @@ img {
     0 10px 28px rgba(41, 133, 174, 0.34);
 }
 
-/* --- 通用 section --- */
+/* --- 通用 section：左对齐 + overline 小标 --- */
 .section {
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 0 22px 110px;
+  padding: 0 24px 120px;
+}
+
+.overline {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #2985AE;
+  margin-bottom: 14px;
 }
 
 .section-title {
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: clamp(28px, 4.4vw, 40px);
   font-weight: 650;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
   color: #1d1d1f;
-  text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 20px;
 }
 
-/* --- 功能卡片 --- */
+/* --- 功能：编号卡片，错落网格 --- */
+#features .section-title {
+  margin-bottom: 52px;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 20px;
+  padding-bottom: 48px; /* 给错位的偶数卡留出空间 */
 }
 
 .card {
@@ -238,102 +250,122 @@ img {
   backdrop-filter: blur(28px) saturate(170%);
   border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 22px;
-  padding: 30px 30px 28px;
+  padding: 30px 30px 30px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 1px 2px rgba(0, 0, 0, 0.04),
     0 16px 40px rgba(29, 29, 31, 0.06);
 }
 
+/* 偶数卡下沉，打破对称 */
+.feature-grid .card:nth-child(even) {
+  position: relative;
+  top: 48px;
+}
+
+.card-num {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #4ABDDC;
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
 .card h3 {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
   color: #1d1d1f;
   margin-bottom: 8px;
 }
 
-.card p {
+.card p:last-child {
   font-size: 15px;
   line-height: 1.7;
   color: #48484d;
 }
 
-/* --- 安全面板：一整块大玻璃 --- */
+/* --- 安全：大玻璃面板，左右分栏 --- */
 .safety-panel {
   background: rgba(255, 255, 255, 0.42);
   -webkit-backdrop-filter: blur(32px) saturate(170%);
   backdrop-filter: blur(32px) saturate(170%);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 28px;
-  padding: 56px 48px;
+  padding: 56px 52px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 1px 2px rgba(0, 0, 0, 0.04),
     0 24px 60px rgba(29, 29, 31, 0.07);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 48px;
 }
 
-.safety-panel .section-title {
-  margin-bottom: 12px;
+.safety-intro .section-title {
+  margin-bottom: 16px;
 }
 
 .safety-lead {
-  text-align: center;
   font-size: 16px;
+  line-height: 1.7;
   color: #55555a;
-  margin-bottom: 44px;
 }
 
-.safety-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 40px;
+.safety-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.safety-item {
+  padding: 20px 0;
+}
+
+.safety-item + .safety-item {
+  border-top: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.safety-item:first-child {
+  padding-top: 4px;
+}
+
+.safety-item:last-child {
+  padding-bottom: 4px;
 }
 
 .safety-item h3 {
   font-size: 17px;
   font-weight: 600;
   color: #1d1d1f;
-  margin-bottom: 6px;
-  padding-left: 14px;
-  position: relative;
-}
-
-/* 品牌色小竖线，代替图标 */
-.safety-item h3::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 5px;
-  bottom: 5px;
-  width: 3px;
-  border-radius: 2px;
-  background: #4ABDDC;
+  margin-bottom: 4px;
 }
 
 .safety-item p {
   font-size: 15px;
   line-height: 1.7;
   color: #48484d;
-  padding-left: 14px;
 }
 
-/* --- 联系区 --- */
-.contact {
-  text-align: center;
-  padding-bottom: 140px;
+/* --- 关于：个人自白 --- */
+.about {
+  padding-bottom: 150px;
 }
 
-.contact .section-title {
-  margin-bottom: 14px;
+.about .section-title {
+  margin-bottom: 24px;
 }
 
-.contact-lead {
-  font-size: 16px;
-  color: #55555a;
-  margin-bottom: 22px;
+.about-text {
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.9;
+  color: #48484d;
+  max-width: 560px;
+  margin-bottom: 18px;
 }
 
 .mail-link {
+  display: inline-block;
+  margin-top: 6px;
   font-size: clamp(19px, 3vw, 24px);
   font-weight: 500;
   color: #2985AE;
@@ -355,9 +387,9 @@ img {
 }
 
 .footer-inner {
-  max-width: 980px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 22px;
+  padding: 22px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -423,28 +455,34 @@ img {
 /* --- 响应式 --- */
 @media (max-width: 700px) {
   .hero {
-    padding: 128px 22px 72px;
+    padding: 132px 24px 80px;
   }
 
-  .feature-grid,
-  .safety-grid {
+  .feature-grid {
     grid-template-columns: 1fr;
+    padding-bottom: 0;
+  }
+
+  .feature-grid .card:nth-child(even) {
+    top: 0; /* 单列时取消错位 */
   }
 
   .section {
-    padding-bottom: 80px;
+    padding-bottom: 88px;
   }
 
   .safety-panel {
-    padding: 40px 26px;
+    grid-template-columns: 1fr;
+    padding: 40px 28px;
+    gap: 28px;
   }
 
-  .safety-grid {
-    gap: 26px;
+  .about {
+    padding-bottom: 110px;
   }
 
   .nav-links {
-    gap: 20px;
+    gap: 18px;
   }
 
   .footer-inner {
