@@ -81,7 +81,6 @@ export default function App() {
           <a className="btn" href={NOTIFY_HREF}>
             获取上线通知
           </a>
-          <p className="hero-note">正在打磨，准备上架 App&nbsp;Store</p>
         </div>
         <ul className="trust-chips">
           <li>不经手交易</li>

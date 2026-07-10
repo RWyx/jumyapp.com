@@ -20,7 +20,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  /* 仅引用访问者操作系统自带字体，不分发任何字体文件，无授权问题 */
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: #1d1d1f;
@@ -152,11 +153,6 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-.hero-note {
-  font-size: 13px;
-  color: #86868b;
 }
 
 /* 信任点：玻璃小胶囊，左对齐 */
