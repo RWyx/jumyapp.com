@@ -132,8 +132,11 @@ export default function App() {
           </p>
           <p className="about-text">上线消息、试用邀请，或者任何想法，写信给我：</p>
           <a className="mail-link" href={`mailto:${EMAIL}`}>
-            {EMAIL}
+            给我写信&nbsp;&rarr;
           </a>
+          <p className="about-email">
+            wismyai<span className="at-sign" />gmail.com
+          </p>
         </section>
       </main>
 

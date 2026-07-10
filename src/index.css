@@ -374,6 +374,18 @@ img {
   border-color: #2985AE;
 }
 
+/* 邮箱地址显示：用 CSS 伪元素渲染 @，避免 Cloudflare 邮件保护误判 */
+.about-email {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #86868b;
+  letter-spacing: 0.02em;
+}
+
+.at-sign::after {
+  content: '@';
+}
+
 /* --- 页脚 --- */
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.6);
@@ -471,6 +483,15 @@ img {
     grid-template-columns: 1fr;
     padding: 40px 28px;
     gap: 28px;
+  }
+
+  .trust-chips {
+    max-width: 320px;
+  }
+
+  .trust-chips li {
+    font-size: 12px;
+    padding: 6px 14px;
   }
 
   .about {
