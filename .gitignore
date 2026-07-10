@@ -1,3 +1,4 @@
 node_modules/
 dist/
+.ssg/
 .DS_Store

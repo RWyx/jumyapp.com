@@ -1,8 +1,9 @@
 /* ============================================
-   聚米 Jumy 官网（React 版）
-   风格: 简约 · 排版主导 · 液态玻璃
+   聚米 Jumy 官网 · v3
+   风格: 简约 · 专业 · 液态玻璃
    品牌色: #4ABDDC / 深色 #2985AE
-   文字: #1d1d1f 主 / #6e6e73 次（Apple 灰阶）
+   文字: #1d1d1f 主 / #6e6e73 次
+   构建期预渲染，线上零 JS
    ============================================ */
 
 *,
@@ -118,7 +119,7 @@ img {
 .hero {
   max-width: 980px;
   margin: 0 auto;
-  padding: 168px 22px 120px;
+  padding: 160px 22px 96px;
   text-align: center;
 }
 
@@ -146,16 +147,41 @@ img {
 }
 
 .hero-actions {
-  margin-top: 40px;
+  margin-top: 38px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .hero-note {
   font-size: 13px;
   color: #86868b;
+}
+
+/* 信任点：玻璃小胶囊 */
+.trust-chips {
+  list-style: none;
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trust-chips li {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3a3d;
+  padding: 8px 16px;
+  border-radius: 980px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 2px 8px rgba(29, 29, 31, 0.05);
 }
 
 /* --- 按钮：玻璃胶囊 --- */
@@ -183,11 +209,11 @@ img {
     0 10px 28px rgba(41, 133, 174, 0.34);
 }
 
-/* --- 功能区：玻璃卡片 --- */
-.features {
+/* --- 通用 section --- */
+.section {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 22px 120px;
+  padding: 0 22px 110px;
 }
 
 .section-title {
@@ -199,6 +225,7 @@ img {
   margin-bottom: 48px;
 }
 
+/* --- 功能卡片 --- */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -231,49 +258,76 @@ img {
   color: #48484d;
 }
 
-/* 入场动画：纯 CSS，加载即播，动画失效时内容依然可见 */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* --- 安全面板：一整块大玻璃 --- */
+.safety-panel {
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(32px) saturate(170%);
+  backdrop-filter: blur(32px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  padding: 56px 48px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 24px 60px rgba(29, 29, 31, 0.07);
 }
 
-.hero > * {
-  animation: fade-up 0.6s ease both;
+.safety-panel .section-title {
+  margin-bottom: 12px;
 }
 
-.hero .hero-sub {
-  animation-delay: 0.08s;
+.safety-lead {
+  text-align: center;
+  font-size: 16px;
+  color: #55555a;
+  margin-bottom: 44px;
 }
 
-.hero .hero-actions {
-  animation-delay: 0.16s;
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 40px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero > * {
-    animation: none;
-  }
+.safety-item h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+  padding-left: 14px;
+  position: relative;
+}
+
+/* 品牌色小竖线，代替图标 */
+.safety-item h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  border-radius: 2px;
+  background: #4ABDDC;
+}
+
+.safety-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #48484d;
+  padding-left: 14px;
 }
 
 /* --- 联系区 --- */
 .contact {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 22px 140px;
   text-align: center;
+  padding-bottom: 140px;
 }
 
 .contact .section-title {
   margin-bottom: 14px;
 }
 
-.contact p {
+.contact-lead {
   font-size: 16px;
   color: #55555a;
   margin-bottom: 22px;
@@ -332,19 +386,61 @@ img {
   color: #1d1d1f;
 }
 
+/* --- 入场动画：纯 CSS，动画失效时内容依然可见 --- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero > * {
+  animation: fade-up 0.6s ease both;
+}
+
+.hero .hero-sub {
+  animation-delay: 0.08s;
+}
+
+.hero .hero-actions {
+  animation-delay: 0.16s;
+}
+
+.hero .trust-chips {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > * {
+    animation: none;
+  }
+}
+
 /* --- 响应式 --- */
 @media (max-width: 700px) {
   .hero {
-    padding: 128px 22px 88px;
+    padding: 128px 22px 72px;
   }
 
-  .feature-grid {
+  .feature-grid,
+  .safety-grid {
     grid-template-columns: 1fr;
   }
 
-  .features,
-  .contact {
-    padding-bottom: 88px;
+  .section {
+    padding-bottom: 80px;
+  }
+
+  .safety-panel {
+    padding: 40px 26px;
+  }
+
+  .safety-grid {
+    gap: 26px;
   }
 
   .nav-links {
@@ -365,7 +461,9 @@ img {
     background: #fbfbfd;
   }
 
-  .card {
+  .card,
+  .safety-panel,
+  .trust-chips li {
     background: #ffffff;
     border-color: rgba(0, 0, 0, 0.08);
   }
